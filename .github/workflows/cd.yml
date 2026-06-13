@@ -20,4 +20,5 @@ jobs:
               push: true
               platforms: linux/amd64
               tags: ${{ secrets.DOCKERHUB_USERNAME }}/myapp:latest
-          - run: curl -fsSL -X GET "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
+          - name: Trigger Render Deployment
+            run: echo "${{secrets.DOCKERHUB_USERNAME}} && curl -fsSL -X GET "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
